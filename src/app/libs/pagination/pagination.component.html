@@ -1,0 +1,20 @@
+<button md-icon-button [disabled]="isFirstPage()" (click)="viewPage(1)">
+    <md-icon>first_page</md-icon>
+</button>
+<button md-icon-button [disabled]="isFirstPage()" (click)="viewPage(_currentPage - 1)">
+    <md-icon>navigate_before</md-icon>
+</button>
+
+<button md-icon-button *ngFor="let p of _pages"
+        [ngClass]="{accent: p.value === _currentPage}"
+        [disabled]="p.value === _currentPage"
+        (click)="viewPage(p.value)">{{p.label}}
+</button>
+
+<button md-icon-button [disabled]="isLastPage()" (click)="viewPage(_currentPage + 1)">
+    <md-icon>navigate_next</md-icon>
+</button>
+
+<button md-icon-button [disabled]="isLastPage()" (click)="viewPage(getLastPage())">
+    <md-icon>last_page</md-icon>
+</button>

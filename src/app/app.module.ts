@@ -2,19 +2,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { MaterialModule } from '@angular/material';
+import { LibsModule } from './libs/libs.module';
 import { AppComponent } from './app.component';
+import { BookService } from './shared/services/book.service';
+import { CatelogService } from './shared/services/catelog.service';
+import { ArticleService } from './shared/services/article.service';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        LibsModule,
+        MaterialModule.forRoot()
+    ],
+    providers: [
+        BookService,
+        CatelogService,
+        ArticleService
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

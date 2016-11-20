@@ -1,3 +1,14 @@
-<h1>
-  {{title}}
-</h1>
+<section>
+    <div class="container">
+        <input [(ngModel)]="currentPage" type="number">
+
+        <app-pager (previous)="previousPage()" (next)="nextPage()"></app-pager>
+
+        <br/>
+        <md-toolbar>
+            <span class="auto-filler"></span>
+            <app-pagination [currentPage]="currentPage" [maxSize]="10" [perPage]="5" [totalElements]="100"
+                            (page)="viewPage($event)"></app-pagination>
+        </md-toolbar>
+    </div>
+</section>
