@@ -1,6 +1,8 @@
+import { AppRoutingModule } from './app.routing';
+import { HomeModule } from './home/home.module';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { LibsModule } from './libs/libs.module';
@@ -18,7 +20,9 @@ import { ArticleService } from './shared/services/article.service';
         FormsModule,
         HttpModule,
         LibsModule,
-        MaterialModule.forRoot()
+        MaterialModule.forRoot(),
+        HomeModule,
+        AppRoutingModule
     ],
     providers: [
         BookService,
