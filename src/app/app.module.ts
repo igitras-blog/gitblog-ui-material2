@@ -1,3 +1,5 @@
+import { BaiduService } from './shared/services/baidu.service';
+import { Requests } from './shared/utils/request';
 import { AppRoutingModule } from './app.routing';
 import { HomeModule } from './home/home.module';
 import { FormsModule } from '@angular/forms';
@@ -27,7 +29,9 @@ import { ArticleService } from './shared/services/article.service';
     providers: [
         BookService,
         CatelogService,
-        ArticleService
+        ArticleService,
+        BaiduService,
+        Requests
     ],
     bootstrap: [AppComponent]
 })

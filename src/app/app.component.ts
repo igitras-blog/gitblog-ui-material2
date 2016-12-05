@@ -1,3 +1,5 @@
+import { Requests } from './shared/utils/request';
+import { BaiduService } from './shared/services/baidu.service';
 import { Component, OnInit } from '@angular/core';
 import { BookService } from './shared/services/book.service';
 import { Book } from './shared/models/book';
@@ -11,10 +13,16 @@ export class AppComponent implements OnInit {
     private books: Array<Book> = [];
     private book: Book = new Book();
 
-    constructor(private bookService: BookService) {
+    constructor(private bs: BaiduService, private bookService: BookService, private requests: Requests) {
     }
 
     ngOnInit(): void {
+        this.bs.search().subscribe(
+            resp => console.log(resp),
+            error => this.requests.handleError(error),
+            () => console.log()
+        );
+
         this.bookService.search("").subscribe(
             books => this.books = books,
             error => console.log(error),
