@@ -34,7 +34,7 @@ export class Requests {
     public handleError(error) {
         console.log(error.status);
         if (error.status === 401 || error.status === 0) {
-            this.router.navigate(['/account/login']);
+            // this.router.navigate(['/account/login']);
             return Observable.throw([]);
         } else if (error.status >= 400) {
             let respErr = this.convert(error);
